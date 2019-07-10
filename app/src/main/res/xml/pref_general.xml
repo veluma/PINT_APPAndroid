@@ -1,0 +1,37 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:defaultValue=""
+        android:dialogMessage="Editar o seu nome"
+        android:dialogTitle="Editar o seu nome"
+        android:inputType="textCapWords"
+        android:key="full_name"
+        android:summary="Editar o seu nome"
+        android:title="Name" />
+
+    <EditTextPreference
+        android:key="email"
+        android:title="Email"
+        android:summary="Editar o seu email"
+        android:dialogTitle="Editar o seu email"
+        android:dialogMessage="Editar o seu email"
+        android:defaultValue=""
+        android:inputType="textEmailAddress"/>
+    <EditTextPreference
+        android:key="morada"
+        android:title="morada"
+        android:summary="Editar a sua morada"
+        android:dialogTitle="Editar a sua morada"
+        android:dialogMessage="Editar a sua morada"
+        android:defaultValue=""
+        android:inputType="textEmailAddress"/>
+    <EditTextPreference
+        android:defaultValue=""
+        android:dialogMessage="Enter Your Email Address"
+        android:dialogTitle="Editar seu Telefone "
+        android:inputType="textEmailAddress"
+        android:key="telefone"
+        android:summary="Editar seu Telefone "
+        android:title="Telefone" />
+
+</PreferenceScreen>
