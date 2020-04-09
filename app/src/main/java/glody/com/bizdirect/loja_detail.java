@@ -43,17 +43,24 @@ public class loja_detail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loja_detail);
+
+
         Intent intent = getIntent();
         session=new  SessionHandler(getApplicationContext());
         cliente=session.getUserDetails();
         userModel = (Empresa) intent.getSerializableExtra("user");
+
         etname = (TextView) findViewById(R.id.empresanome);
         etmorada = (TextView) findViewById(R.id.empresamorada);
         etemail = (TextView) findViewById(R.id.empresaemail);
+
         etname.setText(userModel.getNomeempresa());
         etmorada.setText(userModel.getMorada());
         etemail.setText(userModel.getEmail());
+
         Button fidelizar = findViewById(R.id.fidelizar);
+
+
 
         fidelizar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +103,7 @@ public class loja_detail extends AppCompatActivity {
                             if (response.getInt(KEY_STATUS) == 1||response.getInt(KEY_STATUS) == 2) {
 
                                 Toast.makeText(getApplicationContext(),
-                                        response.getString(KEY_MESSAGE), Toast.LENGTH_SHORT).show();
+                                        "Você já é fidelizado!", Toast.LENGTH_SHORT).show();
 
                             }
                             Intent intent = new Intent(loja_detail.this, loja_pontos.class);
@@ -113,8 +120,8 @@ public class loja_detail extends AppCompatActivity {
                         pDialog.dismiss();
 
                         //Display error message whenever an error occurs
-                        Toast.makeText(getApplicationContext(),
-                                error.getMessage(), Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(),
+                             //  "Você já esta fidelizado!", Toast.LENGTH_SHORT).show();
 
                     }
                 });

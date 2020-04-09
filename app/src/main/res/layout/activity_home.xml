@@ -21,10 +21,9 @@
             android:id="@+id/gridView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:listSelector="#ECC5A6"
             android:numColumns="1"
-            android:verticalSpacing="50dp"
-            android:listSelector="#0f0"
-           />
+            android:verticalSpacing="50dp" />
 
     </RelativeLayout>
 

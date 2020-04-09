@@ -10,7 +10,8 @@
     <string name="tv_registar_txt">Criar Conta?</string>
     <string name="tv_regi_link">REGISTAR</string>
     <string name="tv_split">__________________________</string>
-    <string name="tv_rpass">Recuperar Palavra Pass</string>
+    <string name="tv_rpass">Esqueceu a senha ?</string>
+    <string name="tv_rpass2">Recuperaçao de senha</string>
     <string name="tb_morada">Morada</string>
     <string name="tb_tel">Telefone</string>
     <string name="tb_email">Email </string>

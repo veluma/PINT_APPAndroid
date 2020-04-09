@@ -77,7 +77,7 @@ public class home extends AppCompatActivity {
          * Then we have a Response Listener and a Error Listener
          * In response listener we will get the JSON response as a String
          * */
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://193.137.7.33/~estgv17276/PINT/index.php/Welcome/api_get_empresa",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://193.137.7.33/~estgv17276/PINT4/index.php/Api/api_get_empresa",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -127,7 +127,10 @@ public class home extends AppCompatActivity {
 
         //adding our stringrequest to queue
         MySingleton.getInstance(this).addToRequestQueue(stringRequest);
-    } private void loadcamanha(int cid) {
+    }
+
+
+    private void loadcamanha(int cid) {
 
         /*
          * Creating a String Request
@@ -136,7 +139,7 @@ public class home extends AppCompatActivity {
          * Then we have a Response Listener and a Error Listener
          * In response listener we will get the JSON response as a String
          * */
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://193.137.7.33/~estgv17276/PINT3/index.php/Welcome/api_get_camp/?id=82",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://193.137.7.33/~estgv17276/PINT4/index.php/Api/api_get_camp/?id="+cid,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -197,7 +200,7 @@ public class home extends AppCompatActivity {
          * Then we have a Response Listener and a Error Listener
          * In response listener we will get the JSON response as a String
          * */
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://193.137.7.33/~estgv17276/PINT3/index.php/Welcome/api_get_camp/?id=82",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://193.137.7.33/~estgv17276/PINT4/index.php/Api/api_get_fide/?id="+cid,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

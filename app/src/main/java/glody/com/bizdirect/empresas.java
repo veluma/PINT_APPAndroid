@@ -20,10 +20,12 @@ import glody.com.bizdirect.util.bottonnavhelper;
 public class empresas extends AppCompatActivity {
     public static empresas instance;
     private ViewPagerAdapter adapter;
-    private restaurantes rest;
     private lojas loja;
-    private transport trans;
+    private vestuario vest;
+    private restaurantes rest;
     private barbeiro barbe;
+    private transport trans;
+    private outros outro;
     private fidelizados fidel;
     private ViewPager viewPager;
     private TabLayout allTabs;
@@ -33,12 +35,13 @@ public class empresas extends AppCompatActivity {
     private static final int ACTIVITY_NUM = 1;
     private Context mContext = empresas.this;
     private int[] tabIcons = {
-            R.drawable.ic_1,
-            R.drawable.ic_2,
-            R.drawable.ic_3,
-            R.drawable.outros,
-            R.drawable.servico,
-            R.drawable.ic_6
+            R.drawable.ic_todos, //todas
+            R.drawable.ic_2, // vestuario
+            R.drawable.ic_3, //restauracao
+            R.drawable.ic_ioga, // Estetica
+            R.drawable.servico, //servicos
+            R.drawable.outros, //outros
+            R.drawable.ic_6//fidelizadas
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +52,10 @@ public class empresas extends AppCompatActivity {
 
         instance=this;
 
-
         getAllWidgets();
         setupViewPager();
     }
+
     public static empresas getInstance() {
         return instance;
     }
@@ -65,27 +68,35 @@ public class empresas extends AppCompatActivity {
     //configura o view pager
     private void setupViewPager() {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        loja = new lojas();
+        vest = new vestuario();
         rest = new restaurantes();
         barbe = new barbeiro();
         trans = new transport();
-        loja = new lojas();
+        outro = new outros();
         fidel = new fidelizados();
+
         adapter.addFragment(loja, "");
+        adapter.addFragment(vest, "");
         adapter.addFragment(rest, "");
-        adapter.addFragment(trans, "");
         adapter.addFragment(barbe, "");
+        adapter.addFragment(trans, "");
+        adapter.addFragment(outro, "");
         adapter.addFragment(fidel, "");
+
         setViewPageAdapter();
     }
     //adpta o view pager
     private void setViewPageAdapter() {
         viewPager.setAdapter(adapter);
         allTabs.setupWithViewPager(viewPager);
-        allTabs.getTabAt(0).setIcon(tabIcons[2]);
+        allTabs.getTabAt(0).setIcon(tabIcons[0]);
         allTabs.getTabAt(1).setIcon(tabIcons[1]);
-        allTabs.getTabAt(2).setIcon(tabIcons[4]);
+        allTabs.getTabAt(2).setIcon(tabIcons[2]);
         allTabs.getTabAt(3).setIcon(tabIcons[3]);
-        allTabs.getTabAt(4).setIcon(tabIcons[0]);
+        allTabs.getTabAt(4).setIcon(tabIcons[4]);
+        allTabs.getTabAt(5).setIcon(tabIcons[5]);
+        allTabs.getTabAt(6).setIcon(tabIcons[6]);
     }
     private void setupBottomNavigationView(){
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");

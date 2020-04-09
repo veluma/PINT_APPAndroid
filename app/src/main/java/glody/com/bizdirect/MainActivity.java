@@ -2,6 +2,7 @@ package glody.com.bizdirect;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY_EMPTY = "";
     private EditText etUsername;
     private EditText etPassword;
+
     private String username;
     private String password;
     private ProgressDialog pDialog;
@@ -55,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
         if(cheker.isNetworkConnected())
         {
             if(session.isLoggedIn()){
-                Log.e("url","http://193.137.7.33/~estgv17276/PINT/index.php/Welcome/api_get_fide/?id="+cliente.getId());
-
+                Log.e("url","http://193.137.7.33/~estgv17276/PINT4/index.php/Api/api_get_fide/?id="+cliente.getId());
+                Log.e("url","http://193.137.7.33/~estgv17276/PINT4/index.php/Api/api_get_camp/?id="+cliente.getId());
                 loadDashboard();
 
             }
@@ -76,9 +78,22 @@ public class MainActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.tv_password);
 
         TextView register = findViewById(R.id.tv_registar);
+        TextView recuperar = findViewById(R.id.tv_rpass);
+        TextView termos = findViewById(R.id.termos);
         Button login = findViewById(R.id.bt_login);
 
-//
+
+
+        termos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://193.137.7.33/~estgv17276/PINT4/index.php/PINT_Biz/CarregaTermos"));
+                startActivity(browserIntent);
+
+            }
+        });
+
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,7 +113,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
+        recuperar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,RecuperarSenha.class));
+            }
+        });
 
 
     }

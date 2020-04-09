@@ -37,34 +37,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String CREATE_TABLE_EMPRESA = String.format("CREATE TABLE %s(%s INTEGER PRIMARY KEY, %s VARCHAR, %s VARCHAR, %s VARCHAR,%s VARCHAR,%s VARCHAR,%s VARCHAR,%s TINYINT, %s DOUBLE, %s DOUBLE);", TABLE_EMPRESA, COLUMN_ID, COLUMN_NAME, COLUMN_MARCA, COLUMN_MORADA, COLUMN_LOGO, COLUMN_EMAIL, COLUMN_TELEFONE, COLUMN_RAMO, COLUMN_LAT, COLUMN_LOG);
 
-
     private static final String CREATE_TABLE_USER_CITY = String.format("CREATE TABLE %s(%s INTEGER, %s INNTEGER, %s INTEGER );", TABLE_PONTO_CLIENT_EMPRESA, KEY_CLIENT, KEY_EMPRESA, KEY_PONTOS);
-
+    private static final String CAMPANHA = "CREATE TABLE " + TABLE_CAMPANHA
+            + "(" + "idcampanha" +
+            " INTEGER PRIMARY KEY AUTOINCREMENT, " + "empresa" +
+            " INTEGER, " + "nome" +
+            " VARCHAR, " + "nomeemresa" +
+            " VARCHAR, " + "desricao" +
+            " VARCHAR, " + "valor_venda" +
+            " DOUBLE, " + "pontos_ganhos" +
+            " INTEGER, " + "mail_duvidas" +
+            " VARCHAR, " + "dt_inicio" +
+            " VARCHAR, " + "dt_fim" +
+            " VARCHAR, " + "tipo_campanha" +
+            " INTEGER);";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        Log.d("table", CAMPANHA);
         Log.d("table", CREATE_TABLE_EMPRESA);
+        Log.d("table", CREATE_TABLE_USER_CITY);
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL(CAMPANHA);
         db.execSQL(CREATE_TABLE_EMPRESA);
         db.execSQL(CREATE_TABLE_USER_CITY);
-        String sql = "CREATE TABLE " + TABLE_CAMPANHA
-                + "(" + "idcampanha" +
-                " INTEGER PRIMARY KEY AUTOINCREMENT, " + "empresa" +
-                " INTEGER, " + "nome" +
-                " VARCHAR, " + "nomeemresa" +
-                " VARCHAR, " + "desricao" +
-                " VARCHAR, " + "valor_venda" +
-                " DOUBLE, " + "pontos_ganhos" +
-                " INTEGER, " + "mail_duvidas" +
-                " VARCHAR, " + "dt_inicio" +
-                " VARCHAR, " + "dt_fim" +
-                " VARCHAR, " + "tipo_campanha" +
-                " INTEGER);";
-        Log.i("SQL : ", sql);
-        db.execSQL(sql);
+
     }
 
     @Override

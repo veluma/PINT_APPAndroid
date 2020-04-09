@@ -65,10 +65,10 @@ public class GridViewAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         if (!name.equals("")) {
-            new DownLoadImageTask(holder.imageView).execute("http://193.137.7.33/~estgv17276/PINT3/uploads/"+name.getLogo());
+            new DownLoadImageTask(holder.imageView).execute("http://193.137.7.33/~estgv17276/PINT4/uploads/"+name.getLogo());
 
-            Log.e("image","http://193.137.7.33/~estgv17276/PINT3/uploads/"+name.getLogo());
-            holder.imageView.setImageResource(R.drawable.google);
+            Log.e("image","http://193.137.7.33/~estgv17276/PINT4/uploads/"+name.getLogo());
+            holder.imageView.setImageResource(R.drawable.logobiz);
             holder.title.setText(name.getNomeempresa());
         }
         return view;

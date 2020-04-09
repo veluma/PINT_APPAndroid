@@ -128,7 +128,7 @@ public class settings extends AppCompatPreferenceActivity {
 
             }
 
-           addPreferencesFromResource(preferenceFile_toLoad);
+          // addPreferencesFromResource(preferenceFile_toLoad);
 
 
         }
